@@ -1,0 +1,459 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Chopsticks Hand Game</title>
+        <link rel="stylesheet" href="./style.css">
+        <link rel="icon" type="image/x-icon" href="./favicon.ico">
+        <script src="./design.js"></script>
+    </head>
+    <body>
+        <div class="overlay" id="overlay">
+            <div class="rules">
+                <h1>Game Tutorial</h1>
+                <details>
+                    <summary>A. Chopsticks</summary>
+                    <p><b>Chopsticks</b> is a kind of two-player hand game.</p>
+                    <p>The game starts by both players extending 1 finger on their both hands.</p>
+                    <p>Both players take turns <b>attacking</b> their opponents or <b>splitting</b> their own fingers.</p>
+                    <p>The following table explains how to <b>attack</b> and <b>split</b> in the game with some examples.</p>
+                    <table>
+                        <tr>
+                            <th>Game Move</th>
+                            <th>Definition</th>
+                            <th>Examples</th>
+                        </tr>
+                        <tr>
+                            <td>Attack</td>
+                            <td>
+                                <ul>
+                                    <li>A player taps a hand of the opponent by one of his/hers.</li>
+                                    <li>The extending fingers on the tapped hand (opponent) becomes the sum of the fingers’ number on both the tapping (player) and tapped hands (opponent).</li>
+                                    <li>The fingers’ number on the tapping hand (player) remains the same.</li>
+                                </ul>
+                            </td>
+                            <td>
+                                <div class="attack-example">
+                                    <img class="attack-tapped" src="./image/TopLeft/1.png" alt="Hand">
+                                    <img src="./image/TopRight/1.png" alt="Hand">
+                                    <img src="./image/BottomLeft/1.png" alt="Hand">
+                                    <img class="attack-tapping" src="./image/BottomRight/1.png" alt="Hand">
+                                </div>                                
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>Split</td>
+                            <td>
+                                <ul>
+                                    <li>A player redistributes the fingers of both his/her own hands.</li>
+                                    <li>The redistributed result cannot be the swap of the fingers’ number on both hands.</li>
+                                </ul>
+                            </td>
+                            <td>
+                                <div class="split-example">
+                                    <img class="split-moved" src="./image/BottomLeft/1.png" alt="Hand">
+                                    <img class="split-moving" src="./image/BottomRight/1.png" alt="Hand">
+                                </div>   
+                            </td>
+                        </tr>
+                    </table>
+                    <p>Once a hand has 5 fingers extended, the hand is considered <b>dead</b> and becomes a fist.</p>
+                    <p>The <b>dead</b> hand can neither <b>attack</b> nor be <b>attacked</b>. It can only be “revived” by <b>splitting</b>.</p>
+                    <p>If a player is the first with both <b>dead</b> hands, he/she loses and his/her opponent wins.</p>
+                    <p>However, there are 3 kinds of variants about how a hand is considered <b>dead</b>: <b>Rollover</b>/<b>Over 5</b>/<b>Exact 5</b>.</p>
+                    <p>There are more details about <b>Rollover</b>, <b>Over 5</b>, and <b>Exact 5</b> in the following.</p>
+                </details>
+                <details>
+                    <summary>B. Rollover</summary>
+                    <p>If the sum of the fingers’ number on the tapped hand exceeds 5, the fingers’ number becomes the remainder with original number divided by 5.</p>
+                    <p>The following table demonstrates all the possible scenarios in the game of <b>Rollover</b>.</p>
+                    <table>
+                        <tr>
+                            <th style="width: 25%;">Sum</th>
+                            <th style="width: 25%;">Fingers’ Number</th>
+                            <th style="width: 50%;">Scenarios</th>
+                        </tr>
+                        <tr>
+                            <td>2</td>
+                            <td>2</td>
+                            <td>
+                                <div class="rollover-2">
+                                    <img class="rollover-2-tapped" src="./image/TopLeft/1.png" alt="Hand">
+                                    <img src="./image/TopRight/1.png" alt="Hand">
+                                    <img src="./image/BottomLeft/1.png" alt="Hand">
+                                    <img class="rollover-tapping" src="./image/BottomRight/1.png" alt="Hand">
+                                </div>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>3</td>
+                            <td>3</td>
+                            <td>
+                                <div class="rollover-3">
+                                    <img class="rollover-3-tapped" src="./image/TopLeft/2.png" alt="Hand">
+                                    <img src="./image/TopRight/1.png" alt="Hand">
+                                    <img src="./image/BottomLeft/1.png" alt="Hand">
+                                    <img class="rollover-tapping" src="./image/BottomRight/1.png" alt="Hand">
+                                </div>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>4</td>
+                            <td>4</td>
+                            <td>
+                                <div class="rollover-4">
+                                    <img class="rollover-4-tapped" src="./image/TopLeft/3.png" alt="Hand">
+                                    <img src="./image/TopRight/1.png" alt="Hand">
+                                    <img src="./image/BottomLeft/1.png" alt="Hand">
+                                    <img class="rollover-tapping" src="./image/BottomRight/1.png" alt="Hand">
+                                </div>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>5</td>
+                            <td>0</td>
+                            <td>
+                                <div class="rollover-5">
+                                    <img class="rollover-5-tapped" src="./image/TopLeft/4.png" alt="Hand">
+                                    <img src="./image/TopRight/1.png" alt="Hand">
+                                    <img src="./image/BottomLeft/1.png" alt="Hand">
+                                    <img class="rollover-tapping" src="./image/BottomRight/1.png" alt="Hand">
+                                </div>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>6</td>
+                            <td>1</td>
+                            <td>
+                                <div class="rollover-6">
+                                    <img class="rollover-6-tapped" src="./image/TopLeft/4.png" alt="Hand">
+                                    <img src="./image/TopRight/1.png" alt="Hand">
+                                    <img src="./image/BottomLeft/1.png" alt="Hand">
+                                    <img class="rollover-tapping" src="./image/BottomRight/2.png" alt="Hand">
+                                </div>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>7</td>
+                            <td>2</td>
+                            <td>
+                                <div class="rollover-7">
+                                    <img class="rollover-7-tapped" src="./image/TopLeft/4.png" alt="Hand">
+                                    <img src="./image/TopRight/1.png" alt="Hand">
+                                    <img src="./image/BottomLeft/1.png" alt="Hand">
+                                    <img class="rollover-tapping" src="./image/BottomRight/3.png" alt="Hand">
+                                </div>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>8</td>
+                            <td>3</td>
+                            <td>
+                                <div class="rollover-8">
+                                    <img class="rollover-8-tapped" src="./image/TopLeft/4.png" alt="Hand">
+                                    <img src="./image/TopRight/1.png" alt="Hand">
+                                    <img src="./image/BottomLeft/1.png" alt="Hand">
+                                    <img class="rollover-tapping" src="./image/BottomRight/4.png" alt="Hand">
+                                </div>
+                            </td>
+                        </tr>
+                    </table>
+                </details>
+                <details>
+                    <summary>C. Over 5</summary>
+                    <p>If the sum of the fingers’ number on the tapped hand is either 5 or more than 5, the hand is considered <b>dead</b> and becomes a fist.</p>
+                    <p>The following table demonstrates all the possible scenarios in the game of <b>Over 5</b>.</p>
+                    <table>
+                        <tr>
+                            <th style="width: 25%;">Sum</th>
+                            <th style="width: 25%;">Fingers’ Number</th>
+                            <th style="width: 50%;">Scenarios</th>
+                        </tr>
+                        <tr>
+                            <td>2</td>
+                            <td>2</td>
+                            <td>
+                                <div class="over5-2">
+                                    <img class="over5-2-tapped" src="./image/TopLeft/1.png" alt="Hand">
+                                    <img src="./image/TopRight/1.png" alt="Hand">
+                                    <img src="./image/BottomLeft/1.png" alt="Hand">
+                                    <img class="over5-tapping" src="./image/BottomRight/1.png" alt="Hand">
+                                </div>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>3</td>
+                            <td>3</td>
+                            <td>
+                                <div class="over5-3">
+                                    <img class="over5-3-tapped" src="./image/TopLeft/2.png" alt="Hand">
+                                    <img src="./image/TopRight/1.png" alt="Hand">
+                                    <img src="./image/BottomLeft/1.png" alt="Hand">
+                                    <img class="over5-tapping" src="./image/BottomRight/1.png" alt="Hand">
+                                </div>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>4</td>
+                            <td>4</td>
+                            <td>
+                                <div class="over5-4">
+                                    <img class="over5-4-tapped" src="./image/TopLeft/3.png" alt="Hand">
+                                    <img src="./image/TopRight/1.png" alt="Hand">
+                                    <img src="./image/BottomLeft/1.png" alt="Hand">
+                                    <img class="over5-tapping" src="./image/BottomRight/1.png" alt="Hand">
+                                </div>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>5</td>
+                            <td>0</td>
+                            <td>
+                                <div class="over5-5">
+                                    <img class="over5-5-tapped" src="./image/TopLeft/4.png" alt="Hand">
+                                    <img src="./image/TopRight/1.png" alt="Hand">
+                                    <img src="./image/BottomLeft/1.png" alt="Hand">
+                                    <img class="over5-tapping" src="./image/BottomRight/1.png" alt="Hand">
+                                </div>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>6</td>
+                            <td>0</td>
+                            <td>
+                                <div class="over5-6">
+                                    <img class="over5-6-tapped" src="./image/TopLeft/4.png" alt="Hand">
+                                    <img src="./image/TopRight/1.png" alt="Hand">
+                                    <img src="./image/BottomLeft/1.png" alt="Hand">
+                                    <img class="over5-tapping" src="./image/BottomRight/2.png" alt="Hand">
+                                </div>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>7</td>
+                            <td>0</td>
+                            <td>
+                                <div class="over5-7">
+                                    <img class="over5-7-tapped" src="./image/TopLeft/4.png" alt="Hand">
+                                    <img src="./image/TopRight/1.png" alt="Hand">
+                                    <img src="./image/BottomLeft/1.png" alt="Hand">
+                                    <img class="over5-tapping" src="./image/BottomRight/3.png" alt="Hand">
+                                </div>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>8</td>
+                            <td>0</td>
+                            <td>
+                                <div class="over5-8">
+                                    <img class="over5-8-tapped" src="./image/TopLeft/4.png" alt="Hand">
+                                    <img src="./image/TopRight/1.png" alt="Hand">
+                                    <img src="./image/BottomLeft/1.png" alt="Hand">
+                                    <img class="over5-tapping" src="./image/BottomRight/4.png" alt="Hand">
+                                </div>
+                            </td>
+                        </tr>
+                    </table>
+                </details>
+                <details>
+                    <summary>D. Exact 5</summary>
+                    <p>If the sum of the fingers’ number on the tapped hand is exactly 5, the hand is considered <b>dead</b> and becomes a fist.</p>
+                    <p>However, a player cannot <b>attack</b> should the sum of the fingers’ number on the tapped hand exceed 5.</p>
+                    <p>The following table demonstrates all the possible scenarios in the game of <b>Exact 5</b>.</p>
+                    <table>
+                        <tr>
+                            <th style="width: 25%;">Sum</th>
+                            <th style="width: 25%;">Fingers’ Number</th>
+                            <th style="width: 50%;">Scenarios</th>
+                        </tr>
+                        <tr>
+                            <td>2</td>
+                            <td>2</td>
+                            <td>
+                                <div class="exact5-2">
+                                    <img class="exact5-2-tapped" src="./image/TopLeft/1.png" alt="Hand">
+                                    <img src="./image/TopRight/1.png" alt="Hand">
+                                    <img src="./image/BottomLeft/1.png" alt="Hand">
+                                    <img class="exact5-tapping" src="./image/BottomRight/1.png" alt="Hand">
+                                </div>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>3</td>
+                            <td>3</td>
+                            <td>
+                                <div class="exact5-3">
+                                    <img class="exact5-3-tapped" src="./image/TopLeft/2.png" alt="Hand">
+                                    <img src="./image/TopRight/1.png" alt="Hand">
+                                    <img src="./image/BottomLeft/1.png" alt="Hand">
+                                    <img class="exact5-tapping" src="./image/BottomRight/1.png" alt="Hand">
+                                </div>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>4</td>
+                            <td>4</td>
+                            <td>
+                                <div class="exact5-4">
+                                    <img class="exact5-4-tapped" src="./image/TopLeft/3.png" alt="Hand">
+                                    <img src="./image/TopRight/1.png" alt="Hand">
+                                    <img src="./image/BottomLeft/1.png" alt="Hand">
+                                    <img class="exact5-tapping" src="./image/BottomRight/1.png" alt="Hand">
+                                </div>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>5</td>
+                            <td>0</td>
+                            <td>
+                                <div class="exact5-5">
+                                    <img class="exact5-5-tapped" src="./image/TopLeft/4.png" alt="Hand">
+                                    <img src="./image/TopRight/1.png" alt="Hand">
+                                    <img src="./image/BottomLeft/1.png" alt="Hand">
+                                    <img class="exact5-tapping" src="./image/BottomRight/1.png" alt="Hand">
+                                </div>
+                            </td>
+                        </tr>
+                    </table>
+                    <p>Because players cannot <b>attack</b> under some circumstances, the game also ends when it is a player’s turn and he/she can neither <b>attack</b> nor <b>split</b>.</p>
+                    <p>The following table shows how the game also ends with some scenarios.</p>
+                    <table>
+                        <tr>
+                            <th style="width: 25%;">Winner</th>
+                            <th style="width: 25%;">Loser</th>
+                            <th style="width: 50%;">Scenarios</th>
+                        </tr>
+                        <tr>
+                            <td>Player at Bottom</td>
+                            <td>Player at Top</td>
+                            <td>
+                                <div class="exact5-game-end-1">
+                                    <img class="exact5-game-end-1-tapped" src="./image/TopLeft/2.png" alt="Hand">
+                                    <img src="./image/TopRight/4.png" alt="Hand">
+                                    <img src="./image/BottomLeft/0.png" alt="Hand">
+                                    <img class="exact5-game-end-1-tapping" src="./image/BottomRight/2.png" alt="Hand">
+                                </div>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>Player at Top</td>
+                            <td>Player at Bottom</td>
+                            <td>
+                                <div class="exact5-game-end-2">
+                                    <img class="exact5-game-end-2-tapping" src="./image/TopLeft/2.png" alt="Hand">
+                                    <img src="./image/TopRight/0.png" alt="Hand">
+                                    <img src="./image/BottomLeft/4.png" alt="Hand">
+                                    <img class="exact5-game-end-2-tapped" src="./image/BottomRight/2.png" alt="Hand">
+                                </div>
+                            </td>
+                        </tr>
+                    </table>
+                </details>
+                <details open>
+                    <summary>E. How to Play?</summary>
+                    <p>Select one of the game modes from <b>Rollover</b>, <b>Over 5</b>, or <b>Exact 5</b> to start game.</p>
+                    <p>You are the player at bottom, and <b>Computer</b> is the player at top.</p>
+                    <p>The following table illustrates how to <b>attack</b> and <b>split</b> in this simple <b>Chopsticks</b> game.</p>
+                    <table>
+                        <tr>
+                            <th>Game Move</th>
+                            <th colspan="2">How to ...</th>
+                        </tr>
+                        <tr>
+                            <td>Attack</td>
+                            <td colspan="2">
+                                <ol>
+                                    <li>Click one of the hands and the border of it will turn red.</li>
+                                    <li>Click one of the <b>Computer</b>’s hands to <b>attack</b>.</li>
+                                    <li>If the player’s clicked hand is <b>dead</b>, it is unable to <b>attack</b>.</li>
+                                    <li>If <b>Computer</b>’s clicked hand is <b>dead</b>, it is unable to be <b>attacked</b>.</li>
+                                </ol>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td rowspan="6">Split</td>
+                            <td colspan="2">
+                                <ol>
+                                    <li>Click both hands and the border of them will turn red.</li>
+                                    <li>A panel will show up, and there are 4 buttons to click.</li>
+                                </ol>                                
+                            </td>
+                        </tr>
+                        <tr>
+                            <th>Buttons</th>
+                            <th>Functions</th>
+                        </tr>
+                        <tr>
+                            <td>←</td>
+                            <td>
+                                <ol>
+                                    <li>Move 1 finger from the right to the left hand.</li>
+                                    <li>It is disabled when there is no finger on the right hand.</li>
+                                    <li>It is also disabled when the sum of fingers’ number on both hands is 0, 1, 7, and 8.</li>
+                                </ol>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>→</td>
+                            <td>
+                                <ol>
+                                    <li>Move 1 finger from the left to the right hand.</li>
+                                    <li>It is disabled when there is no finger on the left hand.</li>
+                                    <li>It is also disabled when the sum of fingers’ number on both hands is 0, 1, 7, and 8.</li>
+                                </ol>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>OK</td>
+                            <td>
+                                <ol>
+                                    <li>Confirm the result of <b>splitting</b> and then the panel will conceal.</li>
+                                    <li>It is disabled when the results are the the same as original or the swap of the fingers’ number on both hands.</li>
+                                    <li>It is also disabled when the sum of fingers’ number on both hands is 0, 1, 7, and 8.</li>
+                                </ol>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>Cancel</td>
+                            <td>
+                                <ol>
+                                    <li>Cancel the result of <b>splitting</b> and then the panel will conceal.</li>
+                                    <li>The fingers’ number on both hands will return to original as well.</li>
+                                </ol>
+                            </td>
+                        </tr>
+                    </table>
+                    <p>If you are ready, just select one of the game modes to start.</p>
+                </details>
+                <button class="close" onclick="TurnOffTutorial()">❌</button>
+            </div>
+        </div>
+        <div class="bar">
+            <button id="tutorial" onclick="TurnOnTutorial()">Tutorial</button>
+            <select name="game" id="game" onchange="GameMode()">
+                <option value="gamemode">Game Mode</option>
+                <option value="rollover">Rollover</option>
+                <option value="over5">Over 5</option>
+                <option value="exact5">Exact 5</option>
+            </select>
+        </div>
+        <div class="hands" id="hands">
+            <div class="top">
+                <div class="top-left" id="top-left" draggable="true"><img id="imgTL" src="./image/TopLeft/1.png" alt="Hand"></div>
+                <div class="top-right" id="top-right" draggable="true"><img id="imgTR" src="./image/TopRight/1.png" alt="Hand"></div>
+            </div>
+            <div class="middle" id="middle"></div>
+            <div class="bottom">
+                <div class="bottom-left" id="bottom-left" draggable="true"><img id="imgBL" src="./image/BottomLeft/1.png" alt="Hand"></div>
+                <div class="bottom-right" id="bottom-right" draggable="true"><img id="imgBR" src="./image/BottomRight/1.png" alt="Hand"></div>
+            </div>
+        </div>
+        <div class="split-panel" id="split-panel">
+            <div class="split" id="split">
+                <button id="to-left" onclick="SplitToLeft()">←</button>
+                <button id="to-right" onclick="SplitToRight()">→</button>
+                <button id="ok" onclick="SplitOK()">OK</button>
+                <button id="cancel" onclick="SplitCancel()">Cancel</button>
+            </div>
+        </div>
+    </body>
+</html>

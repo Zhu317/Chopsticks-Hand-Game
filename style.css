@@ -1,0 +1,433 @@
+* {
+    text-align: center;
+    vertical-align: middle;
+    margin: 0px;
+    padding: 0px;
+    box-sizing: border-box;
+    font-size: 30px;
+    font-family: 'Times New Roman', 'DFKai-sb';
+}
+body {
+  display: table;
+  background-color: #ccccff;
+  margin: auto;
+}
+.overlay {
+  position: fixed;
+  display: none;
+  background-color: rgba(0, 0, 0, 0.5);
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  z-index: 1;
+  cursor: pointer;
+}
+.rules {
+  position: relative;
+  top: 50%;
+  transform: translateY(-50%);
+  background-color: #ccccff;
+  height: 80%;
+  width: 80%;
+  overflow-y: auto;
+  margin: auto;
+}
+h1 {
+  font-size: 40px;
+  padding: 3px;
+}
+.rules summary {
+  font-size: 35px;
+  padding: 3px;
+}
+.rules p, .rules b {
+  text-align: justify;
+  vertical-align: baseline;
+  padding-top: 3px;
+  padding-bottom: 3px;
+}
+.rules p {
+  padding-left: 5%;
+  padding-right: 5%;
+}
+.rules table {
+  width: 90%;
+}
+.rules img {
+  width: 100px;
+}
+table, th, td {
+  border: 1px solid black;
+  border-collapse: collapse;
+  margin: auto;
+  padding: 3px;
+}
+li {
+  list-style-position: inside;
+  text-align: justify;
+  padding: 3px;
+}
+.attack-example, .split-example, .rollover-2, .rollover-3, .rollover-4, .rollover-5, .rollover-6, .rollover-7, .rollover-8, .over5-2, .over5-3, .over5-4, .over5-5, .over5-6, .over5-7, .over5-8, .exact5-2, .exact5-3, .exact5-4, .exact5-5, .exact5-game-end-1, .exact5-game-end-2 {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  width: fit-content;
+  margin: auto;
+}
+.attack-tapping {
+  position: relative;
+  animation-name: attack-tapping;
+  animation-duration: 4s;
+  animation-iteration-count: infinite;
+}
+.attack-tapped {
+  animation-name: attack-tapped;
+  animation-duration: 4s;
+  animation-iteration-count: infinite;
+}
+@keyframes attack-tapping {
+  0%   {right: 0%; bottom: 0%;}
+  50%  {right: 50%; bottom: 50%;}
+  100% {right: 0%; bottom: 0%;}
+}
+@keyframes attack-tapped {
+  0%   {content: url(./image/TopLeft/1.png);}
+  50%  {content: url(./image/TopLeft/1.png);}
+  100% {content: url(./image/TopLeft/2.png);}
+}
+.split-moving {
+  position: relative;
+  animation-name: split-moving;
+  animation-duration: 4s;
+  animation-iteration-count: infinite;
+}
+.split-moved {
+  animation-name: split-moved;
+  animation-duration: 4s;
+  animation-iteration-count: infinite;
+}
+@keyframes split-moving {
+  0%   {right: 0%; bottom: 0%; content: url(./image/BottomRight/1.png);}
+  50%  {right: 50%; bottom: 0%; content: url(./image/BottomRight/1.png);}
+  100% {right: 0%; bottom: 0%; content: url(./image/BottomRight/0.png);}
+}
+@keyframes split-moved {
+  0%   {content: url(./image/BottomLeft/1.png);}
+  50%  {content: url(./image/BottomLeft/1.png);}
+  100% {content: url(./image/BottomLeft/2.png);}
+}
+.rollover-tapping {
+  position: relative;
+  animation-name: rollover-tapping;
+  animation-duration: 4s;
+  animation-iteration-count: infinite;
+}
+@keyframes rollover-tapping {
+  0%   {right: 0%; bottom: 0%;}
+  50%  {right: 50%; bottom: 50%;}
+  100% {right: 0%; bottom: 0%;}
+}
+.rollover-2-tapped {
+  animation-name: rollover-2-tapped;
+  animation-duration: 4s;
+  animation-iteration-count: infinite;
+}
+.rollover-3-tapped {
+  animation-name: rollover-3-tapped;
+  animation-duration: 4s;
+  animation-iteration-count: infinite;
+}
+.rollover-4-tapped {
+  animation-name: rollover-4-tapped;
+  animation-duration: 4s;
+  animation-iteration-count: infinite;
+}
+.rollover-5-tapped {
+  animation-name: rollover-5-tapped;
+  animation-duration: 4s;
+  animation-iteration-count: infinite;
+}
+.rollover-6-tapped {
+  animation-name: rollover-6-tapped;
+  animation-duration: 4s;
+  animation-iteration-count: infinite;
+}
+.rollover-7-tapped {
+  animation-name: rollover-7-tapped;
+  animation-duration: 4s;
+  animation-iteration-count: infinite;
+}
+.rollover-8-tapped {
+  animation-name: rollover-8-tapped;
+  animation-duration: 4s;
+  animation-iteration-count: infinite;
+}
+@keyframes rollover-2-tapped {
+  0%   {content: url(./image/TopLeft/1.png);}
+  50%  {content: url(./image/TopLeft/1.png);}
+  100% {content: url(./image/TopLeft/2.png);}
+}
+@keyframes rollover-3-tapped {
+  0%   {content: url(./image/TopLeft/2.png);}
+  50%  {content: url(./image/TopLeft/2.png);}
+  100% {content: url(./image/TopLeft/3.png);}
+}
+@keyframes rollover-4-tapped {
+  0%   {content: url(./image/TopLeft/3.png);}
+  50%  {content: url(./image/TopLeft/3.png);}
+  100% {content: url(./image/TopLeft/4.png);}
+}
+@keyframes rollover-5-tapped {
+  0%   {content: url(./image/TopLeft/4.png);}
+  50%  {content: url(./image/TopLeft/4.png);}
+  100% {content: url(./image/TopLeft/0.png);}
+}
+@keyframes rollover-6-tapped {
+  0%   {content: url(./image/TopLeft/4.png);}
+  50%  {content: url(./image/TopLeft/4.png);}
+  100% {content: url(./image/TopLeft/1.png);}
+}
+@keyframes rollover-7-tapped {
+  0%   {content: url(./image/TopLeft/4.png);}
+  50%  {content: url(./image/TopLeft/4.png);}
+  100% {content: url(./image/TopLeft/2.png);}
+}
+@keyframes rollover-8-tapped {
+  0%   {content: url(./image/TopLeft/4.png);}
+  50%  {content: url(./image/TopLeft/4.png);}
+  100% {content: url(./image/TopLeft/3.png);}
+}
+.over5-tapping {
+  position: relative;
+  animation-name: over5-tapping;
+  animation-duration: 4s;
+  animation-iteration-count: infinite;
+}
+@keyframes over5-tapping {
+  0%   {right: 0%; bottom: 0%;}
+  50%  {right: 50%; bottom: 50%;}
+  100% {right: 0%; bottom: 0%;}
+}
+.over5-2-tapped {
+  animation-name: over5-2-tapped;
+  animation-duration: 4s;
+  animation-iteration-count: infinite;
+}
+.over5-3-tapped {
+  animation-name: over5-3-tapped;
+  animation-duration: 4s;
+  animation-iteration-count: infinite;
+}
+.over5-4-tapped {
+  animation-name: over5-4-tapped;
+  animation-duration: 4s;
+  animation-iteration-count: infinite;
+}
+.over5-5-tapped {
+  animation-name: over5-5-tapped;
+  animation-duration: 4s;
+  animation-iteration-count: infinite;
+}
+.over5-6-tapped {
+  animation-name: over5-6-tapped;
+  animation-duration: 4s;
+  animation-iteration-count: infinite;
+}
+.over5-7-tapped {
+  animation-name: over5-7-tapped;
+  animation-duration: 4s;
+  animation-iteration-count: infinite;
+}
+.over5-8-tapped {
+  animation-name: over5-8-tapped;
+  animation-duration: 4s;
+  animation-iteration-count: infinite;
+}
+@keyframes over5-2-tapped {
+  0%   {content: url(./image/TopLeft/1.png);}
+  50%  {content: url(./image/TopLeft/1.png);}
+  100% {content: url(./image/TopLeft/2.png);}
+}
+@keyframes over5-3-tapped {
+  0%   {content: url(./image/TopLeft/2.png);}
+  50%  {content: url(./image/TopLeft/2.png);}
+  100% {content: url(./image/TopLeft/3.png);}
+}
+@keyframes over5-4-tapped {
+  0%   {content: url(./image/TopLeft/3.png);}
+  50%  {content: url(./image/TopLeft/3.png);}
+  100% {content: url(./image/TopLeft/4.png);}
+}
+@keyframes over5-5-tapped {
+  0%   {content: url(./image/TopLeft/4.png);}
+  50%  {content: url(./image/TopLeft/4.png);}
+  100% {content: url(./image/TopLeft/0.png);}
+}
+@keyframes over5-6-tapped {
+  0%   {content: url(./image/TopLeft/4.png);}
+  50%  {content: url(./image/TopLeft/4.png);}
+  100% {content: url(./image/TopLeft/0.png);}
+}
+@keyframes over5-7-tapped {
+  0%   {content: url(./image/TopLeft/4.png);}
+  50%  {content: url(./image/TopLeft/4.png);}
+  100% {content: url(./image/TopLeft/0.png);}
+}
+@keyframes over5-8-tapped {
+  0%   {content: url(./image/TopLeft/4.png);}
+  50%  {content: url(./image/TopLeft/4.png);}
+  100% {content: url(./image/TopLeft/0.png);}
+}
+.exact5-tapping {
+  position: relative;
+  animation-name: exact5-tapping;
+  animation-duration: 4s;
+  animation-iteration-count: infinite;
+}
+@keyframes exact5-tapping {
+  0%   {right: 0%; bottom: 0%;}
+  50%  {right: 50%; bottom: 50%;}
+  100% {right: 0%; bottom: 0%;}
+}
+.exact5-2-tapped {
+  animation-name: exact5-2-tapped;
+  animation-duration: 4s;
+  animation-iteration-count: infinite;
+}
+.exact5-3-tapped {
+  animation-name: exact5-3-tapped;
+  animation-duration: 4s;
+  animation-iteration-count: infinite;
+}
+.exact5-4-tapped {
+  animation-name: exact5-4-tapped;
+  animation-duration: 4s;
+  animation-iteration-count: infinite;
+}
+.exact5-5-tapped {
+  animation-name: exact5-5-tapped;
+  animation-duration: 4s;
+  animation-iteration-count: infinite;
+}
+@keyframes exact5-2-tapped {
+  0%   {content: url(./image/TopLeft/1.png);}
+  50%  {content: url(./image/TopLeft/1.png);}
+  100% {content: url(./image/TopLeft/2.png);}
+}
+@keyframes exact5-3-tapped {
+  0%   {content: url(./image/TopLeft/2.png);}
+  50%  {content: url(./image/TopLeft/2.png);}
+  100% {content: url(./image/TopLeft/3.png);}
+}
+@keyframes exact5-4-tapped {
+  0%   {content: url(./image/TopLeft/3.png);}
+  50%  {content: url(./image/TopLeft/3.png);}
+  100% {content: url(./image/TopLeft/4.png);}
+}
+@keyframes exact5-5-tapped {
+  0%   {content: url(./image/TopLeft/4.png);}
+  50%  {content: url(./image/TopLeft/4.png);}
+  100% {content: url(./image/TopLeft/0.png);}
+}
+.exact5-game-end-1-tapping {
+  position: relative;
+  animation-name: exact5-game-end-1-tapping;
+  animation-duration: 4s;
+  animation-iteration-count: infinite;
+}
+.exact5-game-end-1-tapped {
+  animation-name: exact5-game-end-1-tapped;
+  animation-duration: 4s;
+  animation-iteration-count: infinite;
+}
+@keyframes exact5-game-end-1-tapping {
+  0%   {right: 0%; bottom: 0%;}
+  50%  {right: 50%; bottom: 50%;}
+  100% {right: 0%; bottom: 0%;}
+}
+@keyframes exact5-game-end-1-tapped {
+  0%   {content: url(./image/TopLeft/2.png);}
+  50%  {content: url(./image/TopLeft/2.png);}
+  100% {content: url(./image/TopLeft/4.png);}
+}
+.exact5-game-end-2-tapping {
+  position: relative;
+  animation-name: exact5-game-end-2-tapping;
+  animation-duration: 4s;
+  animation-iteration-count: infinite;
+}
+.exact5-game-end-2-tapped {
+  animation-name: exact5-game-end-2-tapped;
+  animation-duration: 4s;
+  animation-iteration-count: infinite;
+}
+@keyframes exact5-game-end-2-tapping {
+  0%   {left: 0%; top: 0%;}
+  50%  {left: 50%; top: 50%;}
+  100% {left: 0%; top: 0%;}
+}
+@keyframes exact5-game-end-2-tapped {
+  0%   {content: url(./image/BottomRight/2.png);}
+  50%  {content: url(./image/BottomRight/2.png);}
+  100% {content: url(./image/BottomRight/4.png);}
+}
+.close {
+  position: absolute;
+  height: fit-content;
+  width: fit-content;
+  top: 10px;
+  right: 10px;
+  padding: 3px;
+}
+.bar {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+}
+select {
+  height: 100%;
+  width: 100%;
+  background-color: #121212;
+  color: #fffafa;
+  cursor: pointer;
+  padding: 3px;
+  vertical-align: baseline;
+}
+.hands {
+  display: grid;
+  grid-template-rows: 4fr 1fr 4fr;
+  border: solid 10px #ffffcc;
+}
+.hands img {
+  width: 80%;
+}
+.top, .bottom {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+}
+.middle {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 35px;
+}
+.split-panel {
+  display: none;
+}
+.split {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+}
+button {
+  height: 100%;
+  width: 100%;
+  background-color: #121212;
+  color: #fffafa;
+  cursor: pointer;
+  padding: 3px;
+  vertical-align: baseline;
+}
+button:hover {
+  background-color: #242424;
+}
